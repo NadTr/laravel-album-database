@@ -15,13 +15,29 @@ return [
 
     'default' => 'pgsql',
 
+    $host = env('DB_HOST', '127.0.0.1');
+    $database = env('DB_DATABASE', '');
+    $username = env('DB_USERNAME', 'forge');
+    $password = env('DB_PASSWORD', 'forge');
 
-    $url = parse_url(getenv("DATABASE_URL"));
 
-    $host = $url["host"];
-    $username = $url["user"];
-    $password = $url["pass"];
-    $database = substr($url["path"], 1);
+    if($databaseUrl = getenv('DATABASE_URL')) {
+
+        $url = parse_url($databaseUrl);
+
+        $host = $url['host'];
+        $username = $url['user'];
+        $password = $url['pass'];
+        $database = substr($url['path'], 1);
+    }
+
+    //
+    // $url = parse_url(getenv("DATABASE_URL"));
+    //
+    // $host = $url["host"];
+    // $username = $url["user"];
+    // $password = $url["pass"];
+    // $database = substr($url["path"], 1);
 
     /*
     |--------------------------------------------------------------------------
@@ -68,15 +84,17 @@ return [
         ],
 
         'pgsql' => [
-             'driver'   => 'pgsql',
-             'host'     => $host,
-             'database' => $database,
-             'username' => $username,
-             'password' => $password,
-             'charset'  => 'utf8',
-             'prefix'   => '',
-             'schema'   => 'public',
-        ],
+            'driver' => 'pgsql',
+            'host' => $host,
+            'port' => env('DB_PORT', '5432'),
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ]
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
