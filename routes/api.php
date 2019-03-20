@@ -25,7 +25,7 @@ Route::post('/logout', 'AuthController@logout');
 
 
 //Albums
-Route::get('/albums', 'AlbumController@index')->name('albums.all');
+Route::get('/albums', 'AlbumController@index')->name('albums.index');
 
 Route::post('/albums', 'AlbumController@store')->name('albums.store');
 

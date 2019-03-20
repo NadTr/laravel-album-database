@@ -14,13 +14,7 @@
                         </div>
                     @endif
                     @if($user = Auth::user())
-                      @isset($user)
-                        <p>albums is not empty</p>
-                        {{$user}}
-                        <a href="{{ route('albums.all') }}">Show albums</a>
-
-
-                      @endisset
+                        <a href="{{ route('albums.index') }}">Show albums</a>
                     @endif
 
                 </div>
