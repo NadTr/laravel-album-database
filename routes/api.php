@@ -25,12 +25,14 @@ Route::post('/logout', 'AuthController@logout');
 
 
 //Albums
-Route::get('/albums', 'albumController@all')->name('albums.all');
+Route::get('/albums', 'AlbumController@index')->name('albums.all');
 
-Route::post('/albums', 'albumController@store')->name('albums.store');
+Route::post('/albums', 'AlbumController@store')->name('albums.store');
 
-Route::get('/albums/{album}', 'albumController@show')->name('albums.show');
+Route::get('/albums/{album}', 'AlbumController@show')->name('albums.show');
 
-Route::put('/albums/{album}', 'albumController@update')->name('albums.update');
+Route::put('/albums/{album}', 'AlbumController@update')->name('albums.update');
 
-Route::delete('/albums/{album}', 'albumController@destory')->name('albums.destroy');
+Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
+
+Route::get('/albums_search}', 'AlbumController@search')->name('albums.search');

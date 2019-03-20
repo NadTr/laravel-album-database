@@ -9,9 +9,9 @@ class AlbumController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
+        $albums = Album::all();
 
-        return response()->json($tasks);
+        return response()->json($albums);
     }
 
     public function store(Request $request)
@@ -29,20 +29,20 @@ class AlbumController extends Controller
 
         ]);
 
-        $task = Task::create($request->all());
+        $album = Album::create($request->all());
 
         return response()->json([
-            'message' => 'Great success! New task created',
-            'task' => $task
+            'message' => 'Great success! New album created',
+            'album' => $album
         ]);
     }
 
-    public function show(Task $task)
+    public function show(Album $album)
     {
-        return $task;
+        return $album;
     }
 
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Album $album)
     {
         $request->validate([
           'album_cover'           => 'nullable',
@@ -55,20 +55,27 @@ class AlbumController extends Controller
           'album_average_score'   => 'nullable'
         ]);
 
-        $task->update($request->all());
+        $album->update($request->all());
 
         return response()->json([
-            'message' => 'Great success! Task updated',
-            'task' => $task
+            'message' => 'Great success! Album updated',
+            'album' => $album
         ]);
     }
 
-    public function destroy(Task $task)
+    public function destroy(Album $album)
     {
-        $task->delete();
+        $album->delete();
 
         return response()->json([
-            'message' => 'Successfully deleted task!'
+            'message' => 'Successfully deleted album!'
         ]);
+    }
+    public function search()
+    {
+      //$albums_art = Album::where('artist_name',$request)->get();
+      $albums_alb = Album::where('album_name', 'lorem')->get();
+      //$albums = [$albums_alb, $albums_art];
+        return response()->json($albums_alb);
     }
 }

@@ -13,7 +13,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
+                    @if($user = Auth::user())
+                      @isset($user)
+                        <p>albums is not empty</p>
+                        {{$user}}
+                        <a href="{{ route('albums.all') }}">Show albums</a>
+
+
+                      @endisset
+                    @endif
+
                 </div>
             </div>
         </div>
