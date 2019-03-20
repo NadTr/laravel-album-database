@@ -2,7 +2,7 @@
 
 $db;
 if(getenv('APP_ENV'!='local')){
-  $db = parse_url(env("DATABASE_URL"));
+  $db = parse_url(getenv("DATABASE_URL"));
   $db["path"] = ltrim($db["path"], "/");
 }
 
