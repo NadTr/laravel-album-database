@@ -29,10 +29,10 @@ Route::get('/albums', 'AlbumController@index')->name('albums.all');
 
 Route::post('/albums', 'AlbumController@store')->name('albums.store');
 
+Route::get('/search', 'AlbumController@search')->name('albums.search');
+
 Route::get('/albums/{album}', 'AlbumController@show')->name('albums.show');
 
 Route::put('/albums/{album}', 'AlbumController@update')->name('albums.update');
 
 Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
-
-Route::get('/albums_search}', 'AlbumController@search')->name('albums.search');

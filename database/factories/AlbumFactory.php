@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Album::class, function (Faker $faker) {
     return [
-      'album_cover'           => $faker->imageUrl($width = 640, $height = 480), // 'http://lorempixel.com/640/480/'
+      'album_cover'           => $faker->imageUrl($width = 500, $height = 500), // 'http://lorempixel.com/640/480/'
       'artist_name'           => $faker->firstName(),
       'album_name'            => $faker->sentence(),
       'music_style'           => $faker->word(),

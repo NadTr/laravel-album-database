@@ -36,6 +36,22 @@ class AlbumController extends Controller
             'album' => $album
         ]);
     }
+    public function search(Request $request)
+    {
+      $parameter = $request->only('param');
+      $param = array_first($parameter);
+           //
+      $albums = Album::where(function ($query) use ($param) {
+            return $query->where('artist_name', 'LIKE','%' . $param . '%')
+            ->orWhere('album_name', 'LIKE','%' . $param . '%');
+        })
+      ->get();
+
+      // $albums_art = Album::where('artist_name', 'LIKE','%' . $param . '%')->get();
+      // $albums_alb = Album::where('album_name', 'LIKE','%' . $param . '%')->get();
+      // $albums = $albums_alb->concat($albums_art);
+        return response()->json($albums);
+    }
 
     public function show(Album $album)
     {
@@ -71,11 +87,5 @@ class AlbumController extends Controller
             'message' => 'Successfully deleted album!'
         ]);
     }
-    public function search()
-    {
-      //$albums_art = Album::where('artist_name',$request)->get();
-      $albums_alb = Album::where('album_name', 'lorem')->get();
-      //$albums = [$albums_alb, $albums_art];
-        return response()->json($albums_alb);
-    }
+
 }
