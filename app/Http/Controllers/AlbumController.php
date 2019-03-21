@@ -76,7 +76,7 @@ class AlbumController extends Controller
           'album_average_score'   => 'nullable'
         ]);
 
-        $album->save($request->all());
+        $album->update($request->all());
 
         return response()->json([
             'message' => 'Great success! Album updated',
