@@ -24,6 +24,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
 
+    //Albums
     Route::get('/albums', 'AlbumController@index')->name('albums.index');
     Route::post('/albums', 'AlbumController@store')->name('albums.store');
     Route::get('/search', 'AlbumController@search')->name('albums.search');
@@ -32,8 +33,5 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
 });
 
-//Users
+//Route login
 Route::post('login', 'AuthController@login');
-
-
-//Albums
