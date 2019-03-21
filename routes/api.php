@@ -20,7 +20,7 @@ Route::post('login', 'AuthController@login');
 //if authenticated
 Route::middleware('auth:api')->group(function () {
 
-    Route::->get('/user', function (Request $request) {
+    Route::get('/user', function (Request $request) {
         return $request->user();
     });
     Route::post('logout', 'AuthController@logout');
