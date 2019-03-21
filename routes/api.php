@@ -18,32 +18,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 //Users
 Route::post('/register', 'AuthController@register');
+Route::post('login', 'AuthController@login');
 
-Route::group([
+Route::middleware('auth:api')->group(function () {
 
-    'middleware' => 'api',
-    'namespace' => 'App\Http\Controllers',
-    'prefix' => 'auth'
-
-], function ($router) {
-
-    Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+
+    Route::get('/albums', 'AlbumController@index')->name('albums.index');
+    Route::post('/albums', 'AlbumController@store')->name('albums.store');
+    Route::get('/search', 'AlbumController@search')->name('albums.search');
+    Route::get('/albums/{album}', 'AlbumController@show')->name('albums.show');
+    Route::put('/albums/{album}', 'AlbumController@update')->name('albums.update');
+    Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
+
 
 });
 
 
 //Albums
-Route::get('/albums', 'AlbumController@index')->name('albums.index');
-
-Route::post('/albums', 'AlbumController@store')->name('albums.store');
-
-Route::get('/search', 'AlbumController@search')->name('albums.search');
-
-Route::get('/albums/{album}', 'AlbumController@show')->name('albums.show');
-
-Route::put('/albums/{album}', 'AlbumController@update')->name('albums.update');
-
-Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
