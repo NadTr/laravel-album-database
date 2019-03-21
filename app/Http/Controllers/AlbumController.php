@@ -36,6 +36,7 @@ class AlbumController extends Controller
             'album' => $album
         ]);
     }
+
     public function search(Request $request)
     {
       $parameter = $request->only('param');
@@ -53,14 +54,18 @@ class AlbumController extends Controller
         return response()->json($albums);
     }
 
-    public function show(Album $album)
+    public function show(Request $request)
     {
+        $id = $request->only('id');
+        $album = Album::find($id);
         return $album;
     }
 
-    public function update(Request $request, Album $album)
+    public function update(Request $request)
     {
-        $request->validate([
+          //$id = $request->only('id');
+          $album = Album::find($request->id);
+          $request->validate([
           'album_cover'           => 'nullable',
           'artist_name'           => 'nullable',
           'album_name'            => 'nullable',
@@ -71,7 +76,7 @@ class AlbumController extends Controller
           'album_average_score'   => 'nullable'
         ]);
 
-        $album->update($request->all());
+        $album->save($request->all());
 
         return response()->json([
             'message' => 'Great success! Album updated',
@@ -79,12 +84,16 @@ class AlbumController extends Controller
         ]);
     }
 
-    public function destroy(Album $album)
+    public function destroy(Request $request)
     {
+        $id = $request->only('id');
+        $album = Album::find($id);
         $album->delete();
 
         return response()->json([
-            'message' => 'Successfully deleted album!'
+            'message' => 'Successfully deleted album!',
+            'album' => $id
+
         ]);
     }
 

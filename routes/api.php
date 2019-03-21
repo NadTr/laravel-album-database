@@ -25,12 +25,13 @@ Route::middleware('auth:api')->group(function () {
     Route::post('me', 'AuthController@me');
 
     //Albums
+
     Route::get('/albums', 'AlbumController@index')->name('albums.index');
-    Route::post('/albums', 'AlbumController@store')->name('albums.store');
+    Route::post('/album', 'AlbumController@store')->name('albums.store');
     Route::get('/search', 'AlbumController@search')->name('albums.search');
-    Route::get('/albums/{album}', 'AlbumController@show')->name('albums.show');
-    Route::put('/albums/{album}', 'AlbumController@update')->name('albums.update');
-    Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
+    Route::get('/album', 'AlbumController@show')->name('albums.show');
+    Route::put('/album', 'AlbumController@update')->name('albums.update');
+    Route::delete('/album', 'AlbumController@destroy')->name('albums.destroy');
 });
 
 //Route login
