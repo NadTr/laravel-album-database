@@ -7,9 +7,9 @@ $password = '';
 $db;
 if(env('APP_ENV')!='local'){
   $db = parse_url(getenv("DATABASE_URL"));
-  $host = ltrim($db["path"], "/");
+  $path = ltrim($db["path"], "/");
   $port = $db["port"];
-  $database = $db["host"];
+  $host = $db["host"];
   $username = $db["user"];
   $password = $db["pass"];
 }
@@ -77,7 +77,7 @@ return [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', $host),
             'port' => env('DB_PORT', $port),
-            'database' => env('DB_DATABASE', $database),
+            'database' => env('DB_DATABASE', $path),
             'username' => env('DB_USERNAME', $username),
             'password' => env('DB_PASSWORD', $password),
             'charset' => 'utf8',
