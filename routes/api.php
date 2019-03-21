@@ -13,9 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-//Users
-Route::post('/register', 'AuthController@register');
-Route::post('login', 'AuthController@login');
 
 //if authenticated
 Route::middleware('auth:api')->group(function () {
@@ -33,9 +30,10 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/albums/{album}', 'AlbumController@show')->name('albums.show');
     Route::put('/albums/{album}', 'AlbumController@update')->name('albums.update');
     Route::delete('/albums/{album}', 'AlbumController@destroy')->name('albums.destroy');
-
-
 });
+
+//Users
+Route::post('login', 'AuthController@login');
 
 
 //Albums
