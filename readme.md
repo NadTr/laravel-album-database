@@ -28,7 +28,7 @@ A dictionary containing the following keys:
   * `songs_list`: A list of comma-separated songs as a string.
   * `album_average_score`: The album's rating as an integer, out of 10.
 
-##Router
+## Router
 
 #### GET `/albums`
 Returns all the albums
