@@ -51,3 +51,5 @@ Updates the specified album.
 
 #### DELETE `/album/?id=10`
 Deletes the specified album.
+
+------------------------------------------------------------------------
