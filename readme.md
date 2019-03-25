@@ -1,10 +1,9 @@
 # Laravel Database API
 
-Access [here](http://laravel-album-db.herokuapp.com/)
+This project allows you to run a JSON API for an album database
 
+To access it in heroku, go [there](http://laravel-album-db.herokuapp.com/)
 
-Album database API
-This project allows you to run a JSON API for an album database, you interact with a live demo of it at http://album-database.herokuapp.com/api.
 
 ### Setting up
 After cloning the repo, you need to use `composer install` to download and install the dependencies.
@@ -32,18 +31,21 @@ A dictionary containing the following keys:
 #### GET `/albums`
 Returns all the albums
 
-#### GET `/albums/:id`
+#### GET `/album/?id=10`
 Returns an album by id.
 
-#### POST `/albums`
+#### GET `/search/?param=name`
+Returns all the albums whose artis name or album name contain the word `name`.
+
+#### POST `/album`
 Only takes JSON as input.
 Creates a new album.
 Returns the newly created album object, including its id.
 
-#### PUT `/albums/:id`
+#### PUT `/album/?id=10`
 Only takes JSON as input.
 
 Updates the specified album.
 
-#### DELETE `/albums/:id`
+#### DELETE `/album/?id=10`
 Deletes the specified album.
