@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     @if($user = Auth::user())
-                    <h3> Welcome </h3>
+                    <h3> Welcome $user</h3>
                     @endif
 
                 </div>

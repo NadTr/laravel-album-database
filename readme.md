@@ -2,18 +2,21 @@
 
 This project allows you to run a JSON API for an album database
 
-To access it in heroku, go [there](http://laravel-album-db.herokuapp.com/)
+It is deployed on heroku [there](http://laravel-album-db.herokuapp.com/)
 
 
 ### Setting up
-After cloning the repo, you need to use `composer install` to download and install the dependencies.
+After cloning the git repository, you need to use `composer install` to download and install the dependencies.
 
 You need a PostgreSQL database, if you already have one, you can put your credentials in the .env file in the DB_... section. If you do not have one, you can use `docker-compose up` in the root directory to run a docker container with the `docker-compose.yml` file included.
 
 Serve `public/index.php` with whichever HTTP server you prefer (it must support php obviously). If you do not have any server set up, you can use `php artisan serve` from the root of the repository and the project will be served locally.
 
 ## Usage
-Register via the webpage (`yourdomain/register`), you can now interact with the api at  `yourdomain/api/albums`
+
+You can interact with the API with [Postman](https://www.getpostman.com/),
+and you need to be authenticated to do it.
+Register via the webpage (`yourdomain/api/register`), you can now interact with the api at  `yourdomain/api/albums`
 
 ### Album object
 A dictionary containing the following keys:
@@ -34,10 +37,10 @@ A dictionary containing the following keys:
 Returns all the albums
 
 #### GET `/album/?id=10`
-Returns an album by id.
+Returns the album with the id 10.
 
 #### GET `/search/?param=name`
-Returns all the albums whose artis name or album name contain the word `name`.
+Returns all the albums whose artist name or album name contain the word `name`. (It can be a part of a word)
 
 #### POST `/album`
 Only takes JSON as input.
@@ -46,7 +49,6 @@ Returns the newly created album object, including its id.
 
 #### PUT `/album/?id=10`
 Only takes JSON as input.
-
 Updates the specified album.
 
 #### DELETE `/album/?id=10`
