@@ -19,17 +19,18 @@ Register via the webpage (`yourdomain/register`), you can now interact with the 
 ##### Album object
 A dictionary containing the following keys:
 
-`id: The identifier of the album as an integer.
-name: The name of the album.
-artist: The name of the artist.
-image: A url pointing to the album's cover.
-genre: The album's muscical genre.
-year: The album's year of production.
-label: The album's label.
-songs: A list of comma-separated songs as a string.
-rating: The album's rating as an integer, out of 5.
-GET /albums[?queryString=:query][&][offset=:offset]
-Returns the first 10 characters.`
+` * id: The identifier of the album as an integer.
+  * album_cover: An url pointing to the album's cover.
+  * artist_name: The name of the artist.
+  * album_name: The name of the album.
+  * music_style: The album's muscical genre.
+  * production_year: The album's year of production.
+  * label: The album's label.
+  * songs_list: A list of comma-separated songs as a string.
+  * album_average_score: The album's rating as an integer, out of 10.`
+
+#### GET /albums[?queryString=:query][&][offset=:offset]
+Returns the first 10 characters.
 
 Optional query parameter returns only albums where any of the strings match the query.
 
