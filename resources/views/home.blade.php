@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     @if($user = Auth::user())
-                        <a href="{{ route('api/albums') }}">Show albums</a>
+                    <h3> Welcome </h3>
                     @endif
 
                 </div>
