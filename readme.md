@@ -12,10 +12,10 @@ You need a PostgreSQL database, if you already have one, you can put your creden
 
 Serve `public/index.php` with whichever HTTP server you prefer (it must support php obviously). If you do not have any server set up, you can use `php artisan serve` from the root of the repository and the project will be served locally.
 
-## Usage
+### Usage
 
 You can interact with the API with [Postman](https://www.getpostman.com/),
-and you need to be authenticated to do it.
+and you need to be authenticated to do it.  
 Register via the webpage (`yourdomain/register`), you can now interact with the api at  `yourdomain/api/albums`
 
 ### Album object
