@@ -43,12 +43,12 @@ Returns the album with the id 10.
 Returns all the albums whose artist name or album name contain the word `name`. (It can be a part of a word)
 
 #### POST `/album`
-*Only takes JSON as input.*
+*Only takes JSON as input.*  
 Creates a new album.
 Returns the newly created album object, including its id.
 
 #### PUT `/album/?id=10`
-*Only takes JSON as input.*
+*Only takes JSON as input.*  
 Updates one, all or several fields of a specified album.
 
 #### DELETE `/album/?id=10`
