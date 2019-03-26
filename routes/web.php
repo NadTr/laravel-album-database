@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/cookie/set','CookieController@setCookie');
+Route::get('/cookie/get','CookieController@getCookie');
