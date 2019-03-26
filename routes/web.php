@@ -19,5 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/cookie/set','CookieController@setCookie');
-Route::get('/cookie/get','CookieController@getCookie');
+Route::get('/cookie/set','CookieController@setCookie')->name('setCookie');
+Route::get('/cookie/get','CookieController@getCookie')->name('getCookie');
